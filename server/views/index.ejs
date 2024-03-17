@@ -1,0 +1,28 @@
+<% var title = 'index.ejs' %>
+
+<%-include('header.ejs', {title: title})%>
+<h2> 메인 페이지 입니다. (DB READ) </h2>
+
+<table border="1">
+    <tr>
+        <th>번호</th>
+        <th>이름</th>
+        <th>이메일</th>
+        <th>패스워드</th>
+        <th>생성시간</th>
+        <th>수정시간</th>
+    </tr>
+
+    <% for (const user of users) { %>
+        <tr>
+        <td><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td><%= user.password %></td>
+        <td><%= user.createdAt%></td>
+        <td><%= user.updatedAt%></td>
+        </tr>
+    <% } %>
+</table>
+
+<%-include('footer.ejs')%>

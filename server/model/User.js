@@ -1,8 +1,12 @@
 const { Sequelize, DataTypes } = require('sequelize');
+const mysql = require('mysql2')
+require('dotenv').config();
 
-const sequelize = new Sequelize('database', 'username', 'password', {
-  host: 'localhost',
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW, {
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT,
   dialect: 'mysql',
+  logging: true,
 });
 
 const User = sequelize.define('User', {
@@ -21,6 +25,14 @@ const User = sequelize.define('User', {
     validate: {
       len: [6, 255], // Ensure password length is between 6 and 255 characters
     },
+  },
+  createdAt: {
+    type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW, // 현재 시간 자동 설정
+  },
+  updatedAt: {
+    type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW, // 현재 시간 자동 설정
   },
 });
 
