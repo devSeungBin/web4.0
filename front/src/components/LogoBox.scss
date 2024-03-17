@@ -1,0 +1,16 @@
+.LogoBox {
+  // LogoBox 사이즈 설정
+  width: 325px;
+  height: 400px;
+
+  // Logo 중앙 배치
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // Logo 사이즈
+  img {
+    width: 91px;
+    height: 105px;
+  }
+}

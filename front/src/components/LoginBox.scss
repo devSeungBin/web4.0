@@ -1,0 +1,70 @@
+.LoginBox {
+  // LoginBox 사이즈 설정
+  width: 325px;
+  height: 400px;
+  border-top-right-radius: 45px;
+  border-bottom-right-radius: 45px;
+  background: #fff;
+
+  // container 배치
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // container
+  .inner {
+    width: 245px;
+    height: 300px;
+
+    // contents 배치
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    // 브랜드 이름
+    h1 {
+      font-size: 45px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    // 아이디 | 비밀번호 박스 설정
+    .userBox {
+      width: 230px;
+      height: 35px;
+      border-radius: 10px;
+      border: 1px solid #e0e0e0;
+      padding-left: 10px;
+    }
+    // placeholder 글씨(색상, 크기, 굵기) 설정
+    .userBox::placeholder {
+      color: #c5c5c5;
+      font-size: 11px;
+      font-weight: 400;
+    }
+    .userBox + .userBox {
+      margin-top: 1rem;
+    }
+
+    // 로그인 박스 설정
+    .login {
+      width: 242px;
+      height: 35px;
+      border-radius: 10px;
+      background: #333;
+      margin-top: 41px;
+
+      //login 문구 변경 - "로그인"
+      color: #c5c5c5;
+      font-size: 13px;
+      font-weight: 500;
+
+      // hover 이벤트
+      &:hover {
+        background: lighten(#333, 25%);
+        transition: 0.5s;
+      }
+    }
+  }
+}
