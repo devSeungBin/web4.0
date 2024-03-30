@@ -1,5 +1,5 @@
 import React from "react";
-import './MainBox.scss'
+import "./MainBox.scss";
 
 function MainBox({ children }) {
   return <div className="MainBox">{children}</div>;

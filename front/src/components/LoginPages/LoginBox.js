@@ -1,10 +1,14 @@
 import React from "react";
 import "./LoginBox.scss";
 
-function LoginBox() {
+function LoginBox({ logo, handleLoginBox }) {
+  // className - LoginBox
+  const loginClass = `LoginBox ${logo ? "off" : "on"}`;
+  // className - innerBox
+  const innerClass = `inner ${logo ? "off" : "on"}`;
   return (
-    <div className="LoginBox">
-      <div className="inner">
+    <div className={loginClass}>
+      <div className={innerClass}>
         <h1>Pagoth</h1>
         <input
           type="text"
@@ -18,7 +22,8 @@ function LoginBox() {
           className="userBox"
           placeholder="패스워드"
         />
-        <input type="submit" className="login" value="로그인"/>
+        <input type="submit" className="login" value="로그인" />
+        <span onClick={handleLoginBox}>회원가입</span>
       </div>
     </div>
   );
