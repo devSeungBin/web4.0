@@ -11,6 +11,22 @@
   justify-content: center;
   align-items: center;
 
+  // 로고버튼을 눌렀을 경우
+  // 로그인 박스 활성화
+  &.on {
+    opacity: 1;
+    width: 325px;
+    transition: 0.4s;
+  }
+
+  // 로고버튼을 누르지 않았을 경우(기본)
+  // 로그인 박스 비활성화
+  &.off {
+    opacity: 0;
+    width: 0px;
+    transition: 0.5s;
+  }
+
   // container
   .inner {
     width: 245px;
@@ -20,6 +36,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    // 로고버튼을 눌렀을 경우
+    // 로그인 박스 활성화
+    &.on {
+      opacity: 1;
+      width: 325px;
+      transition: 1.8s;
+    }
+
+    // 로고버튼을 누르지 않았을 경우(기본)
+    // 로그인 박스 비활성화
+    &.off {
+      opacity: 0;
+      width: 0px;
+      transition: 0.1s;
+    }
 
     // 브랜드 이름
     h1 {
@@ -36,6 +68,18 @@
       border-radius: 10px;
       border: 1px solid #e0e0e0;
       padding-left: 10px;
+
+      // 로고버튼을 눌렀을 경우 -> 로그인 박스 활성화
+      &.on {
+        opacity: 1;
+        transition: 0.5s;
+      }
+
+      // 로고버튼을 누르지 않았을 경우(기본) -> 로그인 박스 비활성화
+      &.off {
+        opacity: 0;
+        transition: 0.5s;
+      }
     }
     // placeholder 글씨(색상, 크기, 굵기) 설정
     .userBox::placeholder {
@@ -54,6 +98,7 @@
       border-radius: 10px;
       background: #333;
       margin-top: 41px;
+      cursor: pointer;
 
       //login 문구 변경 - "로그인"
       color: #c5c5c5;
@@ -62,9 +107,18 @@
 
       // hover 이벤트
       &:hover {
-        background: lighten(#333, 25%);
+        background: lighten(#333, 18%);
         transition: 0.5s;
       }
+    }
+
+    // 회원가입 문구 설정
+    span {
+      color: #333;
+      font-size: 10px;
+      font-weight: 500;
+      margin-top: 10px;
+      cursor: pointer;
     }
   }
 }

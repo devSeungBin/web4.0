@@ -1,0 +1,12 @@
+.MainSignUpBox {
+  // 박스 기본 설정
+  width: 650px;
+  height: 800px;
+  border-radius: 45px;
+  background-color: #fff;
+
+  // 회원가입 박스 중앙배치
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
