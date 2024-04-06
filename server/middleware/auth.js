@@ -8,7 +8,7 @@ const auth = async (req, res, next) => {
     if (!token) {
         return res.json({
             isAuth: false,
-            error: "undefined token",
+            error: "token doesn't exist",
         });
     }
 
@@ -21,7 +21,7 @@ const auth = async (req, res, next) => {
         if (!user) {
             return res.json({
                 isAuth: false,
-                error: 'not login',
+                error: "user doesn't exist",
             });
         }
 

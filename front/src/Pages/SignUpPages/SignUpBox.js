@@ -1,30 +1,43 @@
 import "./SignUpBox.scss";
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import axios from "axios";
-const SEVER_URL = "http://localhost:5000/api/todo";
+const SEVER_URL = "http://localhost:5000/users/registrations";
 
 function SignUpBox() {
-  // 서버로 데이터 받기 (get)
-  const [todoList, setTodoList] = useState(null);
-  // 데이터 불러오기
-  const fetchData = async () => {
-    const response = await axios.get(SEVER_URL);
-    setTodoList(response.data);
+  // 사용자 인증
+  // const fetchData = async () => {
+  //   const response = await axios.get('http://localhost:5000/users/auth');
+    
+  // };
+  
+  // 최초 마운트시 사용자 인증
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+
+  // 회원가입 여부에 따른 함수 goToMain()
+  const navigate = useNavigate();
+  const goToMain = (isRegister) => {
+    // 회원가입 성공
+    if (isRegister) {
+      alert("회원가입에 성공했습니다");
+      navigate("/");
+    } else {
+      alert("회원가입에 실패했습니다");
+    }
   };
+
   // 서버로 데이터 보내기 (post)
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     const name = e.target.name.value;
     const email = e.target.email1.value + "@" + e.target.email2.value;
-    const pwd = e.target.pwd.value;
-    await axios.post(SEVER_URL, { name, email, pwd });
-    fetchData();
+    const password = e.target.pwd.value;
+    const { data } = await axios.post(SEVER_URL, { name, email, password });
+    goToMain(data.registerSuccess);
   };
-  // 최초 마운트시 데이터 불러오기
-  useEffect(() => {
-    fetchData();
-  }, []);
+
   return (
     <div className="SignUpBox">
       <div className="inner">
@@ -120,14 +133,6 @@ function SignUpBox() {
           <div className="copyright">
             Copyright 2024. Pagoth Co. All rights reserved.
           </div>
-          {/* todoList */}
-          {todoList?.map((todo) => (
-            <div key={todo.id} style={{ display: "flex", color: "black" }}>
-              <div>{todo.name}</div>
-              <div>{todo.email}</div>
-              <div>{todo.pwd}</div>
-            </div>
-          ))}
         </form>
       </div>
     </div>

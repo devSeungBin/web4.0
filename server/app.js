@@ -10,6 +10,9 @@ app.use(express.json());                        //application/json (JSON 형태�
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
+const cors = require('cors');
+app.use(cors());
+
 
 
 const rootRouter = require('./controllers/root');
