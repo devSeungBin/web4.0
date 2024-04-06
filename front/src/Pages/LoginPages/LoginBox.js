@@ -1,7 +1,8 @@
 import React from "react";
 import "./LoginBox.scss";
+import { Link } from "react-router-dom";
 
-function LoginBox({ logo, handleLoginBox }) {
+function LoginBox({ logo }) {
   // className - LoginBox
   const loginClass = `LoginBox ${logo ? "off" : "on"}`;
   // className - innerBox
@@ -23,7 +24,9 @@ function LoginBox({ logo, handleLoginBox }) {
           placeholder="패스워드"
         />
         <input type="submit" className="login" value="로그인" />
-        <span onClick={handleLoginBox}>회원가입</span>
+        <Link to="/signUp" style={{ textDecoration: "none" }}>
+          <span>회원가입</span>
+        </Link>
       </div>
     </div>
   );
