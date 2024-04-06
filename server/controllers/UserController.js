@@ -45,8 +45,9 @@ router.get('/logout', async (req, res) => {
 });
 
 // routing (POST)
-router.post('/register', async (req, res) => {
-    console.log('[Server] POST 요청 도착 (uri: /users/register)');
+router.post('/registrations', async (req, res) => {
+    console.log('[Server] POST 요청 도착 (uri: /users/registrations)');
+    console.log(req.body);
 
     try {
         const user = await User.create(req.body);
