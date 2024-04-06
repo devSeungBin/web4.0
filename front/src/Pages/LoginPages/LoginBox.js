@@ -24,7 +24,7 @@ function LoginBox({ logo }) {
           placeholder="패스워드"
         />
         <input type="submit" className="login" value="로그인" />
-        <Link to="/signUp" style={{ textDecoration: "none" }}>
+        <Link to="/users/registrations" style={{ textDecoration: "none" }}>
           <span>회원가입</span>
         </Link>
       </div>
