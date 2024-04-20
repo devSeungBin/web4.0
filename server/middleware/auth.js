@@ -1,34 +1,18 @@
-const db = require('../models/DB');
-const jwt = require('jsonwebtoken');
-const { User } = db;
+const { verify } = require('../utils/jwt-util');
 
 const auth = async (req, res, next) => {
-    
-    const token = req.cookies.userAuth;
-    if (!token) {
-        return res.json({
-            isAuth: false,
-            error: "token doesn't exist",
-        });
+
+    if (!req.cookies.accessToken) {
+        req.auth = {};
+        req.auth.verify = false;
+        req.auth.message = 'accessToken이 존재하지 않습니다.';
+        req.auth.error = 'tokenNotFound';
+        next();
     }
 
-    const user = await User.findOne({ where: { name: "root" } });
-    user.findByToken(token, (error, user) => {
-        if (error) {
-            return error;
-        }
+    req.auth = verify(req.cookies.accessToken);
 
-        if (!user) {
-            return res.json({
-                isAuth: false,
-                error: "user doesn't exist",
-            });
-        }
-
-        req.token = token;
-        req.user = user;
-        next();
-    });
+    next();
 }
 
 module.exports = auth;

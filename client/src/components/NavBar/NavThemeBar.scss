@@ -1,0 +1,38 @@
+.NavThemeBar {
+  width: 100%;
+  height: 80px;
+  background-color: #1d1d1d;
+  // background-color: gray;
+
+  // Link 컴포넌트 배치
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  // Link 컴포넌트 스타일 적용
+  .Nav {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+  }
+
+  // 좌측 Nav 버튼
+  .leftNav {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 45px;
+
+    .logo {
+      margin: 5px 0 0 61px;
+    }
+  }
+
+  // 우측 Nav 버튼
+  .rightNav {
+    margin-right: 30px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+  }
+}

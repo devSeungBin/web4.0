@@ -1,3 +1,4 @@
+// 서버 설정
 const keys = require('./config/key');
 
 const express = require('express');
@@ -11,16 +12,18 @@ const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
 const cors = require('cors');
-app.use(cors());
+const client = `http://${keys.CLIENT_HOST}:${keys.CLIENT_PORT}`;
+app.use(cors({
+    origin: client,
+    methods: ['GET', 'POST', 'OPTIONS'],
+    credentials: true,
+}));
 
 
-
-const rootRouter = require('./controllers/root');
+// 라우팅 설정
 const userRouter = require('./controllers/UserController');
 
-app.use('/', rootRouter);
 app.use('/users', userRouter);
-
 
 
 // 서버 오픈

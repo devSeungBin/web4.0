@@ -1,7 +1,5 @@
-const keys = require('../config/key');
 const { Model } = require('sequelize');
 const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 
 module.exports = (sequelize, DataTypes) => {
     class User extends Model { }
@@ -32,11 +30,8 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             defaultValue: 0,
         },
-        token: {
+        refreshToken: {
             type: DataTypes.STRING,
-        },
-        tokenExp: {
-            type: DataTypes.INTEGER,
         },
         createdAt: {
             type: DataTypes.DATE,
@@ -58,52 +53,23 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
 
-    User.prototype.comparePassword = ((userPW, requestPW, callback) => {
-        bcrypt.compare(requestPW, userPW, (err, isMatch) => {
-            if (err) {
-                return callback(err);
-            }
-            return callback(null, isMatch);
-        });
+    User.prototype.comparePassword = ((userPW, requestPW) => {
+        const isMatch = bcrypt.compareSync(requestPW, userPW);
+
+        return isMatch;
     });
 
-    User.prototype.generateToken = (async (user, callback) => {
-        var token = jwt.sign(user.dataValues.id, keys.JWT_SECRET_KEY);
-
-        user.token = token;
+    User.prototype.saveToken = (async (user, token) => {
+        user.refreshToken = token;
         try {
             await user.save();
-            return callback(null, user);
+            return true;
         } catch (error) {
-            return callback(error);
+            return false;
         }
     });
 
-    User.prototype.findByToken = (async (requestToken, callback) => {
-        jwt.verify(requestToken, keys.JWT_SECRET_KEY, async (err, decoded) => {
-
-            const user = await User.findOne({ where: { id: decoded, token: requestToken } });
-
-            if (err) {
-                return callback(err);
-            }
-            return callback(null, user);
-        });
-    });
-
-    User.prototype.deleteToken = (async (user, callback) => {
-        user.token = null;
-
-        try {
-            await user.save();
-            return callback(null, user);
-        } catch (error) {
-            return callback(err);
-        }
-    });
-
-
-    (async () => {
+    (async () => { 
         try {
             await sequelize.sync();
             console.log("[DB] User 테이블이 생성되었습니다.");
