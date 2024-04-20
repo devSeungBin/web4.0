@@ -20,9 +20,13 @@ const sequelize = new Sequelize(keys.DB_NAME, keys.DB_USER, keys.DB_PASSWORD, {
 
 
 const User = require("./UserModel")(sequelize, Sequelize.DataTypes);
+const Image = require("./ImageModel")(sequelize, Sequelize.DataTypes);
+const Gallery = require("./GalleryModel")(sequelize, Sequelize.DataTypes);
 
 
 const db = {};
 db.User = User;
+db.Image = Image;
+db.Gallery = Gallery;
 
 module.exports = db;
