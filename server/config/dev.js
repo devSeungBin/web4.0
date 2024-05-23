@@ -4,9 +4,9 @@ module.exports = {
 
     DB_HOST: 'localhost',
     DB_PORT: '3306',
-    DB_NAME: 'exam_user',
+    DB_NAME: 'readimg',
     DB_USER: 'root',
-    DB_PASSWORD: '1234',
+    DB_PASSWORD: '0000',
 
     CLIENT_HOST: 'localhost',
     CLIENT_PORT: '3000',
