@@ -1,7 +1,7 @@
 import "./SignUpBox.scss";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-const SIGNUP_URL = "http://localhost:5000/users";
+const SIGNUP_URL = "http://43.201.249.247:5000/users";
 
 function SignUpBox({ setLogo }) {
   // 회원가입 여부에 따른 함수 goToMain()

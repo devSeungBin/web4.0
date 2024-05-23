@@ -3,7 +3,7 @@ import { Link, Navigate } from 'react-router-dom';
 import "./Header.css";
 import axios from "axios";
 import { Cookies } from "react-cookie";
-const SIGNOUT_URL = "http://localhost:5000/auth/remove";
+const SIGNOUT_URL = "http://43.201.249.247:5000/auth/remove";
 
 class Header extends Component {
   constructor(props) {

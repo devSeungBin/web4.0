@@ -21,8 +21,8 @@ import Create from "../src/Pages/MainPages/Create";
 import Profile from "../src/Pages/MainPages/Profile";
 import Setting from "../src/Pages/MainPages/Setting";
 
-const AUTH_URL = "http://localhost:5000/auth";
-const REFREESH_URL = "http://localhost:5000/auth/refresh";
+const AUTH_URL = "http://43.201.249.247:5000/auth";
+const REFREESH_URL = "http://43.201.249.247:5000/auth/refresh";
 
 function App() {
   // 로그인 박스 활성화/비활성화를 위한 useState -> 로고 클릭시 로그인 화면 on/off
