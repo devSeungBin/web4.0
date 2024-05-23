@@ -1,0 +1,182 @@
+.PhotoBox {
+  width: 510px;
+  display: flex;
+  flex-direction: column;
+
+  // 이미지 박스
+  .imageBox {
+    height: 375px;
+    border: 3px solid #44474e;
+    position: relative;
+
+    // 이미지 지우기 버튼
+    .deleteImage {
+      background-color: red;
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      position: absolute;
+      z-index: 10;
+      top: 3.5px;
+      left: 3px;
+      transition: 0.5s;
+
+      &.on {
+        opacity: 1;
+        transition: opacity 0.5s ease-in-out;
+      }
+      &.off {
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+        pointer-events: none;
+      }
+
+      img {
+        width: 18px;
+        height: 28px;
+        filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(29deg)
+          brightness(105%) contrast(101%);
+        transition: 0.4s;
+      }
+    }
+
+    // 이미지 미리보기
+    .previewImage {
+      width: 504.5px;
+      height: 375px;
+      position: relative;
+
+      // 이미지
+      img {
+        width: 510px;
+        height: 370px;
+        border-radius: 15px 15px 0px 0px;
+      }
+    }
+  }
+
+  // 태그
+  .tags {
+    width: 510px;
+    padding: 10px 0;
+    background: #44474e;
+    border-bottom: 3px solid black;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  // 사진 업로드 위치
+  .selectOption {
+    width: 510px;
+    padding: 10px 0;
+    background: #44474e;
+    border-bottom: 3px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    select {
+      box-sizing: border-box;
+      width: 495px;
+      padding: 5px;
+      font-size: 14px;
+      border-radius: 6px;
+
+      &:hover,
+      &:focus {
+        outline: none;
+      }
+    }
+
+    option {
+      text-align: left;
+      font-size: 14px;
+      color: #fff;
+      background: #272822;
+    }
+  }
+  // 설명
+  .description {
+    width: 510px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    .descriptionInput {
+      flex: 1;
+      height: 37px;
+      border: none;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 1px;
+      padding: 20px 18px 0 18px;
+      background-color: #44474e;
+      resize: none;
+
+      &:focus {
+        outline: transparent;
+      }
+
+      &.radius {
+        border-radius: 0;
+      }
+    }
+  }
+
+  // 이미지 선택 버튼 || 이미지 업로드 버튼
+  .relatedBtn {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    // input
+    input {
+      display: none;
+    }
+
+    // 버튼 세팅
+    .btn {
+      width: 250px;
+      height: 30px;
+      padding: 3px 0;
+      font-size: 16px;
+      font-weight: 500;
+      border: none;
+      border-radius: 10px;
+      background-color: #c3c3c3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      transition: 0.4s;
+
+      // 선택 || 업로드 아이콘
+      img {
+        width: 18px;
+        height: 30px;
+        transition: 0.4s;
+      }
+
+      // 버튼 클릭시
+      &:hover {
+        background-color: #44474e;
+        color: #fff;
+
+        img {
+          filter: invert(99%) sepia(4%) saturate(7%) hue-rotate(74deg)
+            brightness(104%) contrast(100%);
+        }
+      }
+    }
+  }
+}

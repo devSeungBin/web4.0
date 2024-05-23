@@ -1,0 +1,60 @@
+.UserImgForUpload {
+  border-radius: 10px;
+  background-color: black;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    &:hover + .content {
+      opacity: 0;
+      transition: 0.3s ease-in-out;
+    }
+    // 이미지
+    img {
+      border-radius: 10px;
+      width: 310px;
+      height: 200px;
+      -webkit-box-reflect: below 30px
+        linear-gradient(transparent, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25));
+
+      &:hover {
+        background-color: #000;
+        opacity: 60%;
+        transition: all 0.6s;
+      }
+
+      &:hover + .description {
+        opacity: 1;
+        transition: 0.6s ease-in-out;
+      }
+    }
+
+    // 이미지 설명
+    .description {
+      padding: 0px 10px;
+      opacity: 0;
+      width: 300px;
+      font-weight: 500;
+      color: #fff;
+      position: absolute;
+      transition: 0.5s;
+    }
+  }
+
+  // 이미지 정보
+  .content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    height: 100px;
+    margin: 2px 0px 5px;
+    overflow: hidden;
+    font-weight: 100;
+    font-size: 15px;
+  }
+}

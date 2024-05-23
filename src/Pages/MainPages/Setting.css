@@ -1,0 +1,98 @@
+.SettingBox{
+    background-color: #1D1D1D;
+    height: calc(100vh - 80px);
+    align-content: center;
+    font-family: "JetBrainsMono";
+}
+.setting-container {
+    position: inherit;
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+    margin: 0 auto;
+    top: 50px;
+    padding: 30px 50px 50px 30px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    /* box-shadow: 0 5px 15px rgb(185, 185, 185, 0.8); */
+    color: black;
+}
+.Settingh1{
+    position: inherit;
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: 25px;
+}
+.AccountBox{
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+}
+.PasswordBox{
+    position: relative;
+    display: block;
+    margin-bottom: 20px;
+}
+.PasswordBtn{
+    position: relative;
+    display: block;
+    margin-top: 10px;
+}
+.setting-container h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.setting-container h3 {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.setting-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.setting-container ul li {
+    margin-bottom: 10px;
+}
+
+.setting-container ul li ul {
+    margin-top: 5px;
+    margin-left: 20px;
+}
+
+.setting-container ul li ul li {
+    margin-bottom: 5px;
+}
+
+.setting-container a {
+    text-decoration: none;
+    color: #333;
+}
+
+.setting-container a:hover {
+    text-decoration: underline;
+}
+
+.setting-container input[type="text"],
+.setting-container input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+.setting-container button {
+    padding: 10px 20px;
+    background-color: #5c6bc0;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.setting-container button:hover {
+    background-color: #512da8;
+}

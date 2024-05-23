@@ -1,0 +1,32 @@
+.PreviewBox {
+  // 개행 문자 인식
+  white-space: pre-line;
+
+  width: 150px;
+  border-radius: 15px;
+  background-color: black;
+  padding: 15px 20px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 5px;
+
+  &.vis {
+    opacity: 1;
+  }
+  &.invis {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  // 대륙 Continent
+  h1 {
+    color: #fff;
+    font-size: 30px;
+    font-family: "JetBrainsMono";
+    line-height: 35px;
+    margin-bottom: 10px;
+  }
+}

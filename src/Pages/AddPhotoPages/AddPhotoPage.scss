@@ -1,0 +1,152 @@
+.AddPhotopage {
+  font-family: "JetBrainsMono";
+  opacity: 0;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  animation: photoPage;
+  animation-duration: 1s;
+  animation-delay: 1.6s;
+  animation-fill-mode: forwards;
+  @keyframes photoPage {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+  .leftBox {
+    width: 510px;
+    height: 730px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    h3 {
+      color: #fff;
+      font-size: 35px;
+    }
+
+    h4 {
+      color: #bebfc1;
+    }
+
+    .addPhotoBtn {
+      width: 215px;
+      height: 45px;
+      border-radius: 15px;
+      cursor: pointer;
+      background: linear-gradient(
+        90deg,
+        #6fa3d4 46%,
+        #135b9d 99.99%,
+        #135899 100%
+      );
+      box-shadow: 0px 0px 10px 5px rgba(14, 235, 195, 0.25);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      transition: .7s;
+
+      &.off {
+        height: 0;
+        font-size: 0;
+        opacity: 0;
+        pointer-events: none;
+
+        img {
+          visibility: hidden;
+        }
+      }
+    }
+  }
+
+  .rightBox {
+    margin-top: 5px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    h4 {
+      color: #fff;
+      font-size: 24px;
+    }
+
+    .btnContainer {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+
+      div {
+        height: 45px;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      // .uploadBtn {
+      //   width: 160px;
+      //   background: #6fa3d4;
+      // }
+
+      .deleteBtn {
+        // width: 140px;
+        width: 310px;
+        background: #494949;
+      }
+    }
+    .previewTitle {
+      font-size: 19px;
+      color: #BEBFC1;
+    }
+    // 업로드 사진 미리보기
+    .preview {
+      width: 310px;
+    }
+
+    .toolContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      div {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 100;
+        cursor: pointer;
+      }
+
+      // Add Photo 또는 Add More Photo 클릭시 선택불가 상태로 변경 
+      .tool1 {
+        &.off {
+          color: #898B8F;
+          pointer-events: none;
+          img {
+            visibility: hidden;
+          }
+        }
+      }
+    }
+  }
+}

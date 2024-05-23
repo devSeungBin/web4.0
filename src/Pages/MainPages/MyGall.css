@@ -1,0 +1,257 @@
+.MyGallcontainer {
+  font-family: "JetBrainsMono";
+  display: flex;
+  /* flex-wrap: wrap; */
+  width: 100%;
+  height: calc(100vh - 80px);
+  justify-content: center;
+  background-color: #1d1d1d;
+}
+.Backimg {
+  width: 100vw;
+  height: calc(100vh - 80px);
+  filter: blur(15px);
+}
+.MainTextBox {
+  position: absolute;
+  display: flex;
+  width: 700px;
+  height: 70px;
+  margin-top: 30px;
+  /* top: 3%;
+    right: 50%; */
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+}
+.MainText {
+  font-size: 30px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.BoxContainer {
+  width: 700;
+}
+.AddBox1 {
+  display: flex;
+  position: absolute;
+  width: 300px;
+  height: 250px;
+  background-color: #ccc;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+  left: 200px;
+  top: 25%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease;
+  background-color: #ccc;
+}
+.AddBox1:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s ease;
+}
+.AddText {
+  display: flex;
+  position: absolute;
+  color: black;
+  font-size: 20px;
+}
+.AddBox2,
+.AddBox3,
+.AddBox4,
+.AddBox5 {
+  display: flex;
+  position: absolute;
+  width: 300px;
+  height: 250px;
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease;
+}
+.AddBox2 {
+  left: 600px;
+  top: 25%;
+}
+.AddBox3 {
+  right: 200px;
+  top: 25%;
+}
+.AddBox4 {
+  left: 200px;
+  top: 90%;
+}
+.AddBox5 {
+  right: 200px;
+  top: 90%;
+}
+.AddBox2:hover,
+.AddBox3:hover,
+.AddBox4:hover,
+.AddBox5:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+.box1,
+.box2,
+.box3,
+.box4 {
+  display: flex;
+  position: absolute;
+  width: 300px;
+  height: 250px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease;
+  background-color: #ccc;
+  overflow: hidden;
+}
+.box1 {
+  left: 40%;
+  top: 25%;
+}
+.box2 {
+  right: 14%;
+  top: 25%;
+}
+.box3 {
+  left: 25%;
+  top: 90%;
+}
+.box4 {
+  right: 27%;
+  top: 90%;
+}
+.box1:hover,
+.box2:hover,
+.box3:hover,
+.box4:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s ease;
+}
+
+.GallBox {
+  position: inherit;
+  width: 300px;
+  height: 250px;
+}
+.GallBox:hover {
+  transition: transform 0.3s ease;
+}
+.GalleryBox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.GalleryBox::before {
+  content: "";
+  opacity: .5;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: #000;
+}
+.GalleryBox:hover {
+  opacity: 1;
+  transition: .5s;
+}
+.GalleryName {
+  position: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  margin: 0;
+  color: #fff;
+}
+
+.LinkBox {
+  position: inherit;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  /* background-color: #ccc; */
+  right: 0;
+  border: none;
+  margin-top: 10px;
+  margin-right: 10px;
+  opacity: 0.7;
+  background-color: transparent;
+}
+.Linkbtn {
+  position: inherit;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+.Linkbtn:hover {
+  background-color: rgba(255, 255, 255, 0.99); /* 호버될 때 배경색 변경 */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* 호버 시 transform과 배경색 전환 효과 */
+}
+.LinkImg {
+  position: inherit;
+  display: flex;
+  width: 1.3rem;
+  height: 1.3rem;
+}
+.GroupBox {
+  position: inherit;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  /* background-color: #ccc; */
+  left: 0;
+  border: none;
+  margin-top: 10px;
+  margin-left: 10px;
+  opacity: 0.7;
+  background-color: transparent;
+  z-index: 5;
+}
+.Groupbtn {
+  position: inherit;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+.Groupbtn:hover {
+  background-color: rgba(255, 255, 255, 0.99); /* 호버될 때 배경색 변경 */
+  transition: transform 0.3s ease, background-color 0.3s ease; /* 호버 시 transform과 배경색 전환 효과 */
+}
+.GroupImg {
+  position: inherit;
+  display: flex;
+  width: 23px;
+  height: 23px;
+  z-index: 2;
+  border: none;
+}
+
+.MyGallthumbnail {
+  position: inherit;
+  /* max-width: 100%;
+    max-height: 250px; */
+  width: 300px;
+  height: 250px;
+  display: flex;
+}

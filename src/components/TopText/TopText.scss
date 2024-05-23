@@ -1,0 +1,44 @@
+.TopText {
+  // 개행 문자 인식
+  white-space: pre-line;
+  // point-text 배치
+  display: flex;
+  flex-direction: row;
+  gap: 6.5px;
+  font-size: 9px;
+  font-family : "JetBrainsMono";
+  letter-spacing: 1px;
+  color: #636163;
+  transition: 0.3s;
+  margin-top: 4px;
+
+  .point {
+    margin-top: 12px;
+    circle {
+      transition: 0.3s;
+    }
+
+    // on 상태 - 활성화
+    &.on > circle {
+      fill: #fff;
+    }
+    &.off > circle {
+      fill: #636163;
+    }
+  }
+  // on 상태 - 활성화
+  .on {
+    color: #fff;
+  }
+  // off 상태 - 비활성화
+  .of {
+    color: #636163;
+  }
+}
+
+.TopText:hover {
+  color: #fff;
+  .point > circle {
+    fill: #fff;
+  }
+}

@@ -1,0 +1,84 @@
+/* 프로필 수정 페이지 컨테이너 */
+.ProfileBox{
+  background-color: #1D1D1D;
+  height: calc(100vh - 80px);
+  align-content: center;
+  font-family: "JetBrainsMono"
+}
+.Profile-container{
+  position: inherit;
+  display: block;
+  max-width: 600px;
+  margin: 0 auto;
+  /* margin-top: 20px; */
+  top: 50px;
+  padding: 20px 40px 40px 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  /* box-shadow: 0 5px 15px rgb(185, 185, 185, 0.8); */
+}
+.EditPro{
+  position: inherit;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+/* 프로필 사진 미리보기 스타일 */
+.profile-preview {
+  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.profile-preview img {
+  max-width: 100%;
+  border-radius: 50%;
+}
+.ProfileImgBox{
+  position: relative;
+  display: block;
+  /* margin-top: 10px; */
+  margin-bottom: 10px;
+}
+.ProfileImgTxt{
+  font-size: 15px;
+}
+.NameBox{
+  position: relative;
+  display: block;
+  margin-bottom: 10px;
+}
+.BioBox{
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+}
+/* 입력란 스타일 */
+.input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* 저장 버튼 스타일 */
+.button {
+  display: block;
+  width: 60%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #5c6bc0;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.button:hover {
+  background-color: #512da8;
+}
+
+  

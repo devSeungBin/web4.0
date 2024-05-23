@@ -1,0 +1,65 @@
+.TagBox {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 48px;
+  width: 480px;
+  padding: 0 7px;
+  border: 1px solid rgb(1, 186, 138);
+  border-radius: 10px;
+  background-color: #fff;
+
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  // ul
+  #tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 8px;
+
+    // li
+    .tag {
+      list-style-type: none;
+      width: auto;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #01ba8a;
+      padding: 0 8px;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 6px;
+      margin: 0 8px 8px 0;
+      background: #f3f3f7;
+      border-radius: 15px;
+    }
+    // 태그 삭제 버튼 X
+    .tag-close-icon {
+      width: 16px;
+      height: 16px;
+      line-height: 12px;
+      text-align: center;
+      font-size: 14px;
+      margin-top: 3px;
+      margin-left: 8px;
+      color: #01ba8a;
+      border-radius: 50%;
+      background: #fff;
+      cursor: pointer;
+    }
+  }
+
+  .tag-input {
+    flex: 1;
+    border: none;
+    height: 46px;
+    font-size: 14px;
+    padding: 2px 0 0 0;
+    &:focus {
+      outline: transparent;
+    }
+  }
+}
