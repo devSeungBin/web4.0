@@ -101,7 +101,7 @@ function Create({ addGalleryItem }) {
       } else {
         imageData.append("data", JSON.stringify({title: title, theme: theme, descript: descript}));
         axios
-          .post("http://localhost:5000/galleries", imageData, {
+          .post("http://43.201.249.247:5000/galleries", imageData, {
             headers: {
               "Content-Type": "multipart/form-data",
             },
