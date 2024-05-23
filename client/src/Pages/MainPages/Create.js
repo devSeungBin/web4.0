@@ -85,7 +85,7 @@ function Create({ addGalleryItem }) {
         }
 
         axios
-          .post("http://localhost:5000/galleries", myData, {
+          .post("http://43.201.249.247:5000/galleries", myData, {
             withCredentials: true,
           })
           .then((res) => {
