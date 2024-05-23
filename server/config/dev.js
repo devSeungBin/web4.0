@@ -8,10 +8,10 @@ module.exports = {
     DB_USER: 'root',
     DB_PASSWORD: '0000',
 
-    CLIENT_HOST: 'localhost',
+    CLIENT_HOST: '43.201.249.247',
     CLIENT_PORT: '3000',
 
-    SERVER_HOST: 'localhost',
+    SERVER_HOST: '43.201.249.247',
     SERVER_PORT: '5000',
 
     JWT_ACCESS_TOKEN: '7YyMZ2/siqR3ZWLthqBrZW4=',   // 파go스web토ken
