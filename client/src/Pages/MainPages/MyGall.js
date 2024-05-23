@@ -3,7 +3,7 @@ import "./MyGall.css";
 import { useEffect } from "react";
 import axios from "axios";
 
-const GALLERY_URL = "http://localhost:5000/galleries";
+const GALLERY_URL = "http://43.201.249.247:5000/galleries";
 
 function MyGall({ galleryItems, addGalleryItem, resetGalleryItem }) {
   const navigate = useNavigate();
