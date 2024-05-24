@@ -2,8 +2,11 @@ import "./PhotoBox.scss";
 import { useState, useRef, useEffect } from "react";
 import TagBox from "../TagBox/TagBox";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-function PhotoBox({ divRef, setImageUrl, optionData }) {
+function PhotoBox({ divRef, setImageUrl, optionData, gallery_id }) {
+  const navigate = useNavigate();
+  
   const [images, setImages] = useState([]);
   useEffect(() => {
     if (images[0] === undefined) {
@@ -72,17 +75,23 @@ function PhotoBox({ divRef, setImageUrl, optionData }) {
     imageData.append("data", JSON.stringify(uploadData));
     if (imageData) {
       axios
-        .post("http://localhost:5000/images?gallery_id=1", imageData, {
+        .post(`http://localhost:5000/images?gallery_id=${gallery_id}`, imageData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
           withCredentials: true,
         })
-        .then((response) => {
-          alert(response.msg);
+        .then((res) => {
+          const data = res.data;
+
+          alert(data.msg);
+          navigate(-1);
         })
-        .catch((error) => {
-          alert(error.msg);
+        .catch((err) => {
+          const data = err.response.data;
+
+          console.log(data);
+          navigate(-1);
         });
     } else {
       // alert("No image selected");

@@ -24,9 +24,21 @@ const ThemeImg = ({ theme }) => {
           />
         );
       case 3:
-        return 3;
+        return (
+          <img
+            className="themeImg"
+            src={process.env.PUBLIC_URL + "/img/foodTheme.png"}
+            alt="food"
+          />
+        );
       case 4:
-        return 4;
+        return (
+          <img
+            className="themeImg"
+            src={process.env.PUBLIC_URL + "/img/animalTheme.png"}
+            alt="animal"
+          />
+        );
       default:
         return null;
     }
@@ -96,6 +108,7 @@ function Create({ addGalleryItem }) {
           .catch((err) => {
             const data = err.response.data;
             alert(data.msg);
+            navigate("/mygall");
           });
 
       } else {
@@ -115,6 +128,7 @@ function Create({ addGalleryItem }) {
           .catch((err) => {
             const data = err.response.data;
             alert(data.msg);
+            navigate("/mygall");
           });
       }
 

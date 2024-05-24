@@ -45,7 +45,7 @@ router.get('/', async (req, res) => {
             imageList.push(image);
         });
 
-        return res.status(200).json({
+        return res.setHeader('Access-Control-Allow-Origin','*').status(200).json({
             msg: "전체 이미지 정보 조회에 성공했습니다.",
             images: imageList,
         });

@@ -22,11 +22,12 @@ app.use(cookieParser());
 
 const cors = require('cors');
 const client = `http://${keys.CLIENT_HOST}:${keys.CLIENT_PORT}`;
-app.use(cors({
+const corsOption = {
     origin: client,
-    methods: ['GET', 'POST', 'OPTIONS'],
+    methods: ['GET', 'POST', 'OPTIONS', 'HEAD'],
     credentials: true,
-}));
+}
+app.use(cors(corsOption));
 
 
 // 라우팅 설정

@@ -8,8 +8,8 @@ function PreviewBox({ data, title, view, handleView, num }) {
       {data.map((item) => (
         <PreviewItem
           key={item.id}
-          month={item.month}
-          year={item.year}
+          month={item.createdAt.slice(6, 7)}
+          year={item.createdAt.slice(0, 4)}
           handleView={handleView}
           num={num}
         />
