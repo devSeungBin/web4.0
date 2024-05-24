@@ -135,11 +135,11 @@ function MapTheme({ themeTag1, addThemeTag1, resetThemeTag1,
             addThemeTag4(image);
             break;
           // 북아메리카
-          case "NorthAmerica":
+          case "North America":
             addThemeTag5(image);
             break;
           // 남아메리카
-          case "SouthAmerica":
+          case "South America":
             addThemeTag6(image);
             break;
           default:
