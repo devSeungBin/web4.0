@@ -6,7 +6,7 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "./ImgSwiper.scss";
 
-function ImgSwiper({ imgMokData, swiperRef }) {
+function ImgSwiper({ imageList, swiperRef }) {
   return (
     <Swiper
       ref={swiperRef}
@@ -31,16 +31,18 @@ function ImgSwiper({ imgMokData, swiperRef }) {
       className="mySwiper"
     >
       <div className="container">
-        {imgMokData.map((img) => (
+        {imageList ? imageList.map((img) => (
           <SwiperSlide key={img.id}>
             <UserImg
-              img_path={img.img_path}
-              tag={img.img_tag}
-              date={img.img_date}
-              description={img.img_description}
+              img_path={img.image_url}
+              tag={img.tag}
+              date={img.createdAt.slice(0, 10)}
+              description={img.descript}
             />
           </SwiperSlide>
-        ))}
+        ))
+        :
+        "" }
       </div>
       <div className="prevButton">
         <img

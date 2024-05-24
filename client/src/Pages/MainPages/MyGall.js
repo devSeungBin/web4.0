@@ -5,7 +5,7 @@ import axios from "axios";
 
 const GALLERY_URL = "http://43.201.249.247:5000/galleries";
 
-function MyGall({ galleryItems, addGalleryItem, resetGalleryItem }) {
+function MyGall({ galleryItems, addGalleryItem, resetGalleryItem, handleGalleryId }) {
   const navigate = useNavigate();
 
   const test = async () => {
@@ -20,36 +20,44 @@ function MyGall({ galleryItems, addGalleryItem, resetGalleryItem }) {
     })
     .catch((err) => {
       const data = err.response.data;
-      console.log(data)
-      console.log(data.msg, data.errorCode);
 
+      if (data.errorCode === 300) {
+        console.log("참여한 갤러리가 존재하지 않습니다.");
+      } else {
+        console.log(data.msg);
+      }
     });
   }
 
   useEffect(() => {
     resetGalleryItem();
     test();
-    console.log(galleryItems)
   }, []);
 
   // 갤러리 클릭시, 생성 당시 선택한 테마에 따른 페이지로 이동
-  const handleThemePage = (themeNum) => {
+  const handleThemePage = (idNum, themeNum) => {
+
+    // 갤러리 ID 저장
+    handleGalleryId();
+    handleGalleryId(idNum);
+
     switch (themeNum) {
       // 여행 테마
       case "1":
-        navigate("/users/map");
+        navigate("/users/travel");
         break;
       // 운동 테마
       case "2":
         navigate("/users/sports");
-        return;
-      // 장소 테마
+        break;
+      // 음식 테마
       case "3":
-        navigate("/users/location");
-        return;
-      // DD 테마
+        navigate("/users/food");
+        break;
+      // 동물 테마
       case "4":
-        return;
+        navigate("/users/animal");
+        break;
       default:
         return;
     }
@@ -71,7 +79,7 @@ function MyGall({ galleryItems, addGalleryItem, resetGalleryItem }) {
           <div
             key={index}
             className={`box${index + 1}`}
-            onClick={() => handleThemePage(galleryItems[index].theme)}
+            onClick={() => handleThemePage(galleryItems[index].id, galleryItems[index].theme)}
           >
             <div className="GallBox">
               {/* 추가 */}

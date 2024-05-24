@@ -7,7 +7,7 @@ import html2canvas from "html2canvas";
 import saveAs from "file-saver";
 import UserImgForUpload from "../../components/ImgSwiper/UserImgForUpload";
 
-function AddPhotoPage() {
+function AddPhotoPage({ gallery_id }) {
   const navigate = useNavigate();
   // PhotoBox On / Off
   const [photoBox, setPhotoBox] = useState(false);
@@ -54,7 +54,7 @@ function AddPhotoPage() {
             Add Photo
           </div>
           {photoBox ? (
-            <PhotoBox divRef={divRef} setImageUrl={setImageUrl} optionData={optionData} />
+            <PhotoBox divRef={divRef} setImageUrl={setImageUrl} optionData={optionData} gallery_id={gallery_id} />
           ) : (
             ""
           )}

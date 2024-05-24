@@ -1,61 +1,61 @@
-import "./MapTheme.scss";
+import "./AnimalTheme.scss";
 import { useEffect, useState, useRef } from "react";
-import { ReactComponent as Map } from "../../imgs/world.svg";
-import { ReactComponent as Asia } from "../../imgs/asia.svg";
-import { ReactComponent as Europe } from "../../imgs/europe.svg";
-import { ReactComponent as Africa } from "../../imgs/africa.svg";
-import { ReactComponent as Oceania } from "../../imgs/oceania.svg";
-import { ReactComponent as NorthAmerica } from "../../imgs/northAmerica.svg";
-import { ReactComponent as SouthAmerica } from "../../imgs/southAmerica.svg";
+import { ReactComponent as Animals } from "../../imgs/Animals.svg";
+import { ReactComponent as Dog } from "../../imgs/dog.svg";
+import { ReactComponent as Duck } from "../../imgs/duck.svg";
+import { ReactComponent as Lizard } from "../../imgs/lizard.svg";
+import { ReactComponent as Parrot } from "../../imgs/parrot.svg";
+import { ReactComponent as Cat } from "../../imgs/cat.svg";
+import { ReactComponent as GoldFish } from "../../imgs/goldfish.svg";
 import PreviewBox from "../../components/Preview/PreviewBox";
 import ImgSwiper from "../../components/ImgSwiper/ImgSwiper";
 import axios from "axios";
-let CONTINENT = "";
+let ANIMAL = "";
 
-function Continent(continent) {
-  switch (continent) {
-    // continent0 : 아시아
-    case "continent0":
-      CONTINENT = "Asia";
-      return <Asia className="continent" />;
-    // continent1 : 유럽
-    case "continent1":
-      CONTINENT = "Europe";
-      return <Europe className="continent" />;
-    // continent2 : 아프리카
-    case "continent2":
-      CONTINENT = "Africa";
-      return <Africa className="continent" />;
-    // continent3 : 오세아니아
-    case "continent3":
-      CONTINENT = "Oceania";
-      return <Oceania className="continent" />;
-    // continent4 : 북아메리카
-    case "continent4":
-      CONTINENT = "North\nAmerica";
-      return <NorthAmerica className="continent" />;
-    // continent5 : 남아메리카
-    case "continent5":
-      CONTINENT = "South\nAmerica";
-      return <SouthAmerica className="continent" />;
+function AnimalDetail(animal) {
+  switch (animal) {
+    // animal0 : 강아지
+    case "animal0":
+      ANIMAL = "Dog";
+      return <Dog className="animal" />;
+    // animal1 : 오리
+    case "animal1":
+      ANIMAL = "Duck";
+      return <Duck className="animal" />;
+    // animal2 : 도마뱀
+    case "animal2":
+      ANIMAL = "Lizard";
+      return <Lizard className="animal" />;
+    // animal3 : 앵무새
+    case "animal3":
+      ANIMAL = "Parrot";
+      return <Parrot className="animal" />;
+    // animal4 : 고양이
+    case "animal4":
+      ANIMAL = "Cat";
+      return <Cat className="animal" />;
+    // animal5 : 금붕어
+    case "animal5":
+      ANIMAL = "GoldFish";
+      return <GoldFish className="animal" />;
     default:
       return null;
   }
 }
 
-function MapTheme({ themeTag1, addThemeTag1, resetThemeTag1, 
-                    themeTag2, addThemeTag2, resetThemeTag2,
-                    themeTag3, addThemeTag3, resetThemeTag3, 
-                    themeTag4, addThemeTag4, resetThemeTag4, 
-                    themeTag5, addThemeTag5, resetThemeTag5, 
-                    themeTag6, addThemeTag6, resetThemeTag6,
-                    gallery_id }) {
+function AnimalTheme({  themeTag1, addThemeTag1, resetThemeTag1, 
+                        themeTag2, addThemeTag2, resetThemeTag2,
+                        themeTag3, addThemeTag3, resetThemeTag3, 
+                        themeTag4, addThemeTag4, resetThemeTag4, 
+                        themeTag5, addThemeTag5, resetThemeTag5, 
+                        themeTag6, addThemeTag6, resetThemeTag6,
+                        gallery_id }) {
   // 로딩 상태 변수
   const [loading, setLoading] = useState(true);
   // preview 관련 변수 -> useState
   const [view, setView] = useState(true);
   // 대륙 상태관리 변수
-  const [continent, setContinent] = useState(null);
+  const [animal, setAnimal] = useState(null);
   // 이미지 상태관리 변수
   const [img, setImg] = useState(false);
   const swiperRef = useRef(null);
@@ -64,31 +64,25 @@ function MapTheme({ themeTag1, addThemeTag1, resetThemeTag1,
 
   const handleView = (num) => {
     setView(!view);
-    setContinent(num);
+    setAnimal(num);
     setImageList(null);
     switch (num) {
-      // continent0 : 아시아
-      case "continent0":
+      case "animal0":
         setImageList(themeTag1);
         break;
-      // continent1 : 유럽
-      case "continent1":
+      case "animal1":
         setImageList(themeTag2);
         break;
-      // continent2 : 아프리카
-      case "continent2":
+      case "animal2":
         setImageList(themeTag3);
         break;
-      // continent3 : 오세아니아
-      case "continent3":
+      case "animal3":
         setImageList(themeTag4);
         break;
-      // continent4 : 북아메리카
-      case "continent4":
+      case "animal4":
         setImageList(themeTag5);
         break;
-      // continent5 : 남아메리카
-      case "continent5":
+      case "animal5":
         setImageList(themeTag6);
         break;
       default:
@@ -97,17 +91,14 @@ function MapTheme({ themeTag1, addThemeTag1, resetThemeTag1,
     setImg(!img); // previewBox를 눌렀을 때 이미지 on / off
     swiperRef.current.swiper.slideTo(0);
   }
-
-  // 전체 대륙 <-> 개별 대륙으로 넘어가기 위한 함수
+  // 전체 테마 <-> 개별 테마으로 넘어가기 위한 함수
   const handleBack = () => {
     setView(!view);
-    setContinent(null);
+    setAnimal(null);
     setImg(!img);
     swiperRef.current.swiper.slideTo(0);
   };
-
   const IMAGE_URL = "http://43.201.249.247:5000/images";
-
   const test = async () => {
     await axios
     .get(IMAGE_URL, { params: { gallery_id: gallery_id }, withCredentials: true })
@@ -115,31 +106,25 @@ function MapTheme({ themeTag1, addThemeTag1, resetThemeTag1,
       const data = res.data;
       const images = data.images;
 
-       // 대륙 별 이미지 정보 (1:Asia, 2:Europe, 3:Africa, 4:Oceania, 5:NorthAmerica, 6:SouthAmerica)
+       // 대륙 별 이미지 정보 (1:Dog, 2:Duck, 3:Lizard, 4:Parrot, 5:Cat, 6:GoldFish)
       images.forEach(image => {
         switch (image.theme_tag) {
-          // 아시아
-          case "Asia":
+          case "Dog":
             addThemeTag1(image);
             break;
-          // 유럽
-          case "Europe":
+          case "Duck":
             addThemeTag2(image);
             break;
-          // 아프리카
-          case "Africa":
+          case "Lizard":
             addThemeTag3(image);
             break;
-          // 오세아니아
-          case "Oceania":
+          case "Parrot":
             addThemeTag4(image);
             break;
-          // 북아메리카
-          case "NorthAmerica":
+          case "Cat":
             addThemeTag5(image);
             break;
-          // 남아메리카
-          case "SouthAmerica":
+          case "GoldFish":
             addThemeTag6(image);
             break;
           default:
@@ -153,13 +138,12 @@ function MapTheme({ themeTag1, addThemeTag1, resetThemeTag1,
       
     });
   }
-
   // 2초 뒤에 지도가 나오도록 조정
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 2000);
-    
+
     resetThemeTag1();
     resetThemeTag2();
     resetThemeTag3();
@@ -168,11 +152,10 @@ function MapTheme({ themeTag1, addThemeTag1, resetThemeTag1,
     resetThemeTag6();
     test();
   }, []);
-
   return (
-    <div className="MapTheme">
-      {/* 세계지도 */}
-      <Map className={loading ? "off" : `on ${view ? "" : "invis"}`} />
+    <div className="AnimalTheme">
+      {/* 스포츠 */}
+      <Animals className={loading ? "off" : `on ${view ? "" : "invis"}`} />
       {/* previewBox */}
       <div className="preview0">
         <PreviewBox
@@ -181,10 +164,10 @@ function MapTheme({ themeTag1, addThemeTag1, resetThemeTag1,
             : 
             themeTag1
           }
-          title={"A\nsia"}
+          title={"Dog"}
           view={view}
           handleView={handleView}
-          num={"continent0"}
+          num={"animal0"}
         />
       </div>
       <div className="preview1">
@@ -194,10 +177,10 @@ function MapTheme({ themeTag1, addThemeTag1, resetThemeTag1,
             : 
             themeTag2
           }
-          title={"Eu\nrope"}
+          title={"Duck"}
           view={view}
           handleView={handleView}
-          num={"continent1"}
+          num={"animal1"}
         />
       </div>
       <div className="preview2">
@@ -207,10 +190,10 @@ function MapTheme({ themeTag1, addThemeTag1, resetThemeTag1,
             : 
             themeTag3
           }
-          title={"Af\nrica"}
+          title={"Lizard"}
           view={view}
           handleView={handleView}
-          num={"continent2"}
+          num={"animal2"}
         />
       </div>
       <div className="preview3">
@@ -220,10 +203,10 @@ function MapTheme({ themeTag1, addThemeTag1, resetThemeTag1,
             : 
             themeTag4
           }
-          title={"Oce\nania"}
+          title={"Parrot"}
           view={view}
           handleView={handleView}
-          num={"continent3"}
+          num={"animal3"}
         />
       </div>
       <div className="preview4">
@@ -233,10 +216,10 @@ function MapTheme({ themeTag1, addThemeTag1, resetThemeTag1,
             : 
             themeTag5
           }
-          title={"North\nAmerica"}
+          title={"Cat"}
           view={view}
           handleView={handleView}
-          num={"continent4"}
+          num={"animal4"}
         />
       </div>
       <div className="preview5">
@@ -246,21 +229,21 @@ function MapTheme({ themeTag1, addThemeTag1, resetThemeTag1,
             : 
             themeTag6
           }
-          title={"South\nAmerica"}
+          title={"GoldFish"}
           view={view}
           handleView={handleView}
-          num={"continent5"}
+          num={"animal5"}
         />
       </div>
-      {/* 대륙 */}
-      <div className="continentContainer">{Continent(continent)}</div>
-      {/* 대륙 <-> 전체대륙으로 넘어가기 위한 버튼 */}
+      {/* 개별 테마 */}
+      <div className="animalContainer">{AnimalDetail(animal)}</div>
+      {/* 개별 테마 <-> 전체 테마로 넘어가기 위한 버튼 */}
       <button className={view ? "off" : "on"} onClick={handleBack}>
-        {"Back To\nWorld Map"}
+        {"Back To\nAnimal Theme"}
       </button>
-      {/* 대륙별 이름 */}
-      <div className={view ? "continent_title off" : "continent_title on"}>
-        {CONTINENT}
+      {/* 스포츠별 이름 */}
+      <div className={view ? "animal_title off" : "animal_title on"}>
+        {ANIMAL}
       </div>
       {/* 이미지 */}
       <div className={img ? "imgOn" : "imgOff"}>
@@ -270,4 +253,4 @@ function MapTheme({ themeTag1, addThemeTag1, resetThemeTag1,
   );
 }
 
-export default MapTheme;
+export default AnimalTheme;

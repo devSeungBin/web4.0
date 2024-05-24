@@ -10,11 +10,11 @@ function Main() {
 
   // Your data for items and thumbnails
   const data = [
-    { image: 'img/Maldives.jpg', place: 'Kaafu Atoll', country: 'Maldives', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, aut!' },
-    { image: 'img/Srilanka.jpg', place: 'Sigiriya', country: 'Sri Lanka', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, aut!' },
-    { image: 'img/Grand Canyon.jpg', place: 'Grand Cayon', country: 'USA', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, aut!'},
-    { image: 'img/Machu Picchu.jpg', place: 'Machu Picchu', country: 'Peru', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, aut!'},
-    { image: 'img/Bali.jpg', place: 'Bali', country: 'Indonesia', description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, aut!'}
+    { image: 'img/Maldives.jpg', place: 'Theme Gallery', country: 'Theme', description: 'By classifying photos into various themes, users can easily find and appreciate photos of interest' },
+    { image: 'img/Srilanka.jpg', place: 'Theme Gallery', country: 'Tagging', description: 'By implementing a tag function for each picture, you can quickly search for photos with related tags' },
+    { image: 'img/Grand Canyon.jpg', place: 'Theme Gallery', country: 'Description', description: 'When uploading a picture, you can feel the emotions when you take a picture by writing the contents'},
+    { image: 'img/Machu Picchu.jpg', place: 'Theme Gallery', country: 'Group Gallery', description: 'You can share your memories while appreciating the photos uploaded by the group gallery'},
+    { image: 'img/Bali.jpg', place: 'Theme Gallery', country: 'Photo Community', description: "Let's share and appreciate each other's photos in the photo community"}
     // Add more data for items as needed
   ];
 

@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ReactComponent as SiteLogo } from "../../imgs/SiteMainLogo.svg";
 import TopText from "../TopText/TopText";
 import SearchBox from "../SerachBox/SearchBox";
-// import { useEffect } from "react";
+
 
 function NavThemeBar() {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ function NavThemeBar() {
   const dataClassification = (pathname) => {
     switch (pathname) {
       // 여행 테마
-      case "/users/map": {
+      case "/users/travel": {
         return {
           data: [
             "Asia",
@@ -25,14 +25,48 @@ function NavThemeBar() {
           ],
         };
       }
+      // 스포츠 테마
+      case "/users/sports": {
+        return {
+          data: [
+            "Soccer",
+            "BasketBall",
+            "VolleyBall",
+            "BaseBall",
+            "Golf",
+          ],
+        };
+      }
+      // 음식 테마
+      case "/users/food": {
+        return {
+          data: [
+            "Drink",
+            "Meat",
+            "Salad",
+            "Seafood",
+            "Noodle",
+          ],
+        };
+      }
+      // 동물 테마
+      case "/users/animal": {
+        return {
+          data: [
+            "Dog",
+            "Duck",
+            "Lizard",
+            "Parrot",
+            "Cat",
+            "GoldFish",
+          ],
+        };
+      }
       default:
         return;
     }
   };
   let propsData = dataClassification(pathname);
-  // useEffect(() => {
-  //   console.log(propsData);
-  // }, [propsData]);
   const handleNavigate = () => {
     navigate("/users/addPhoto", { state: propsData });
   };
@@ -44,7 +78,7 @@ function NavThemeBar() {
           <SiteLogo alt="Logo" className="logo" onClick={() => navigate("/")} />
         </Link>
         {/* 상단 텍스트 1 */}
-        <div className="topText1" onClick={() => navigate("/users/map")}>
+        <div className="topText1">
           <TopText content={"Theme\nGallery"} text={true} />
         </div>
         {/* 상단 텍스트 2 */}
