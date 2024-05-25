@@ -53,7 +53,7 @@ function PhotoBox({ divRef, setImageUrl, optionData, gallery_id }) {
   const [tags, setTags] = useState([]);
   const tagResult = tags.join("^&*");
 
-  const [themeTag, setThemeTag] = useState("Asia");
+  const [themeTag, setThemeTag] = useState(optionData[0]);
   const uploadData = { tag: tagResult, theme_tag: themeTag, descript: text };
 
   // 서버로 전달할 데이터_2 { 이미지_파일 }
@@ -75,7 +75,11 @@ function PhotoBox({ divRef, setImageUrl, optionData, gallery_id }) {
     imageData.append("data", JSON.stringify(uploadData));
     if (imageData) {
       axios
+<<<<<<< HEAD
         .post(`http://43.203.241.227:5000/images?gallery_id=${gallery_id}`, imageData, {
+=======
+        .post(`http://43.201.249.247:5000/images?gallery_id=${gallery_id}`, imageData, {
+>>>>>>> 0ed127de78f400588affc88c408457e33c21bc3f
           headers: {
             "Content-Type": "multipart/form-data",
           },
