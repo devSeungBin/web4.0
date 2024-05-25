@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { Cookies } from "react-cookie";
 
-const LOGIN_URL = "http://43.201.249.247:5000/auth";
+const LOGIN_URL = "http://43.203.241.227:5000/auth";
 
 function LoginBox({ logo, isLogin, handleIsLogin, handleAuth, handleRefresh }) {
   // className - LoginBox
