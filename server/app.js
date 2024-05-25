@@ -9,11 +9,10 @@ app.use(express.urlencoded({extended:true}));   //application/x-www-form-urlenco
 app.use(express.json());                        //application/json (JSON 형태의 요청 body를 파싱)
 
 const path = require('path');
-const publicPath = path.join(__dirname, 'public');
-const imagePath = path.join(__dirname, 'public/images');
+const imagePath = path.join(__dirname, 'public/image');
 const profilePath = path.join(__dirname, 'public/profiles');
 const thumbnailPath = path.join(__dirname, 'public/thumbnails');
-app.use("/images", express.static(imagePath));
+app.use("/image", express.static(imagePath));
 app.use("/profiles", express.static(profilePath));
 app.use("/thumbnails", express.static(thumbnailPath));
 
@@ -26,7 +25,6 @@ const corsOption = {
     origin: client,
     methods: ['GET', 'POST', 'OPTIONS', 'HEAD'],
     credentials: true,
-    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
 }
 app.use(cors(corsOption));
 
