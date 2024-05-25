@@ -106,7 +106,7 @@ function MapTheme({ themeTag1, addThemeTag1, resetThemeTag1,
     swiperRef.current.swiper.slideTo(0);
   };
 
-  const IMAGE_URL = "http://43.201.249.247:5000/images";
+  const IMAGE_URL = "http://43.203.241.227:5000/images";
 
   const test = async () => {
     await axios

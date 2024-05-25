@@ -76,7 +76,6 @@ function PhotoBox({ divRef, setImageUrl, optionData, gallery_id }) {
     if (imageData) {
       axios
         .post(`http://43.203.241.227:5000/images?gallery_id=${gallery_id}`, imageData, {
-
           headers: {
             "Content-Type": "multipart/form-data",
           },
