@@ -75,11 +75,8 @@ function PhotoBox({ divRef, setImageUrl, optionData, gallery_id }) {
     imageData.append("data", JSON.stringify(uploadData));
     if (imageData) {
       axios
-<<<<<<< HEAD
         .post(`http://43.203.241.227:5000/images?gallery_id=${gallery_id}`, imageData, {
-=======
-        .post(`http://43.201.249.247:5000/images?gallery_id=${gallery_id}`, imageData, {
->>>>>>> 0ed127de78f400588affc88c408457e33c21bc3f
+
           headers: {
             "Content-Type": "multipart/form-data",
           },
