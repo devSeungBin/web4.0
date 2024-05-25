@@ -7,7 +7,7 @@ const multer = require('multer');
 const uuid4 = require('uuid4');
 const path = require('path');
 
-const imagePath = path.join(__dirname, '../public', 'images');
+const imagePath = path.join(__dirname, '../public', 'image');
 
 const db = require('../models/DB');
 const { Image } = db;
@@ -45,7 +45,7 @@ router.get('/', async (req, res) => {
             imageList.push(image);
         });
 
-        return res.setHeader('Access-Control-Allow-Origin','*').status(200).json({
+        return res.status(200).json({
             msg: "전체 이미지 정보 조회에 성공했습니다.",
             images: imageList,
         });
