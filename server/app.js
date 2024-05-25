@@ -44,6 +44,8 @@ app.use('/galleries', galleryRouter);
 app.use('/galleries/users', galleryUserRouter);
 app.use('/images', imageRouter);
 
+app.options('*', cors(corsOption)); // 모든 경로에 대한 OPTIONS 요청 허용
+
 
 // 서버 오픈
 app.listen(port, () => {
